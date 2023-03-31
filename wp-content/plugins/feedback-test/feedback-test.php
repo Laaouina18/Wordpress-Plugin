@@ -14,18 +14,27 @@
 function feedback_form_shortcode() {
     ob_start();
     ?>
-    <form method="post" action="">
+    <!--Css Link  put after title  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+ 
+	<!--Script Link  put befor end of </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+ <form method="post" action="" class="form">
+    <div class="form-group">
         <label for="note">Note (obligatoire):</label>
-        <input type="number" name="note" min="0" max="5" required>
-        <br><br>
+        <input type="number" name="note" min="0" max="5" required class="form-control">
+    </div>
+    <div class="form-group">
         <label for="remarque">Remarque (obligatoire):</label>
-        <textarea name="remarque" rows="5" required></textarea>
-        <br><br>
+        <textarea name="remarque" rows="5" required class="form-control"></textarea>
+    </div>
+    <div class="form-group">
         <label for="post_id">ID de post ou de page (obligatoire):</label>
-        <input type="text" name="post_id" required>
-        <br><br>
-        <input type="submit" name="submit_feedback" value="Envoyer">
-    </form>
+        <input type="text" name="post_id" required class="form-control">
+    </div>
+    <button type="submit" name="submit_feedback" class="btn btn-primary">Envoyer</button>
+</form>
+
     <?php
     return ob_get_clean();
 }
